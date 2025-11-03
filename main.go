@@ -43,6 +43,10 @@ func main() {
 						Usage:    "Current playback position in seconds",
 						Required: true,
 					},
+					&cli.BoolFlag{
+						Name:  "waybar",
+						Usage: "Output in waybar JSON format",
+					},
 				},
 				Action: cmd.GetLyrics(Version),
 			},
