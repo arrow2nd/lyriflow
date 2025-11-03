@@ -137,21 +137,26 @@ func GetLyrics(version string) cli.ActionFunc {
 			if waybar {
 				return outputWaybar("No lyrics available", "no-lyrics", tooltip, "no-lyrics")
 			}
+
 			fmt.Println("No lyrics available")
 			return nil
 		}
 
 		if lyric == "" {
+			text := "(instrumental)"
+
 			if waybar {
-				return outputWaybar("♪", "instrumental", tooltip, "instrumental")
+				return outputWaybar(text, "instrumental", tooltip, "instrumental")
 			}
-			fmt.Println("(instrumental)")
+
+			fmt.Println(text)
 			return nil
 		}
 
 		if waybar {
 			return outputWaybar(lyric, "playing", tooltip, "lyrics")
 		}
+
 		fmt.Println(lyric)
 		return nil
 	}
